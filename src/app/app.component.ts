@@ -35,7 +35,7 @@ export class AppComponent {
       //otherwise, compute factorial of n-1, 
       //and then resolve promise with its result multiplied by n. 
       else{
-        var bigNum = new Big(n);
+        let bigNum = new Big(n);
         this.factorial(n-1).then((result) =>{
           resolve(bigNum.mul(result));
         });        
@@ -53,8 +53,8 @@ export class AppComponent {
     //compute factorials
     for(let i=1; i<= this.numberOfFactorials; i++){
       this.factorial(i).then(result =>{
-        //push result in items array
-        this.items.push(result);
+        //build new items array adding new computed value at the end
+        this.items =[...this.items, result];
         //update progress
         this.progress = Math.round((i*100.0)/this.numberOfFactorials);
         //when we have computed all factorials, hide progress bar
@@ -66,6 +66,10 @@ export class AppComponent {
 
     //log on method exit
     console.log("exit compute factorial");
+  }
+
+  public cleanResults(){
+    this.items = [];
   }
 
 

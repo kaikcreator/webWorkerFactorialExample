@@ -1,0 +1,11 @@
+div label{
+    display: block;
+}
+
+div:first-of-type{
+    margin-bottom: 20px;
+}
+
+button:disabled{
+    color: #aaa;
+}

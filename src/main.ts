@@ -10,4 +10,4 @@ if (environment.production) {
 }
 
 import {bootstrapWorkerUi} from '@angular/platform-webworker';
-bootstrapWorkerUi('loader.js');
+bootstrapWorkerUi('/app/loader.js');

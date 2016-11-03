@@ -1,8 +1,8 @@
 import './polyfills.ts';
 import '@angular/core';
 import '@angular/common';
-import '@angular/http';
-import '@angular/router';
+import '@angular/platform-webworker';
+import '@angular/platform-webworker-dynamic';
 
 // RxJS
 import 'rxjs';

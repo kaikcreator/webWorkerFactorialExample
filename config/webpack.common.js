@@ -44,7 +44,8 @@ module.exports = {
 
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
-      name: ['app', 'vendor', 'polyfills']
+      name: ['app', 'vendor', 'polyfills'],
+      chunks: ['app', 'vendor', 'polyfills'],
     }),
 
     new HtmlWebpackPlugin({

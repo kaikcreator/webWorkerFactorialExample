@@ -7,7 +7,8 @@ module.exports = {
   entry: {
     'polyfills': './src/polyfills.ts',
     'vendor': './src/vendor.ts',
-    'app': './src/main.ts'
+    'app': './src/main.ts',
+    'webworker': './src/workerLoader.ts'
   },
 
   resolve: {
@@ -47,7 +48,8 @@ module.exports = {
     }),
 
     new HtmlWebpackPlugin({
-      template: 'src/index.html'
+      template: 'src/index.html',
+      excludeChunks: ['webworker']
     })
   ]
 };

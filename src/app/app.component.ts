@@ -49,6 +49,9 @@ export class AppComponent {
     this.items = [];
     this.progress = 0;
     this.computingFactorial = true;
+
+    let progressIncrement = 100.0 / this.numberOfFactorials;
+
     
     //compute factorials
     for(let i=1; i<= this.numberOfFactorials; i++){
@@ -56,7 +59,9 @@ export class AppComponent {
         //build new items array adding new computed value at the end
         this.items =[...this.items, result];
         //update progress
-        this.progress = Math.round((i*100.0)/this.numberOfFactorials);
+        this.progress += progressIncrement;
+        console.log(this.progress);
+
         //when we have computed all factorials, hide progress bar
         if(i == this.numberOfFactorials){
           this.computingFactorial = false;

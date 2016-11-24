@@ -4,7 +4,7 @@
 
 <div>
 	<label for="nFactorial">Compute factorials of first N numbers</label>
-	<!--<input [(ngModel)]="numberOfFactorials" placeholder="Set a number">-->
+	<input (input)="setNumberOfFactorials($event)" placeholder="Set a number">
 	<button (click)="computeFactorial()">Compute factorials</button>
 	<button (click)="cleanResults()" [disabled]="computingFactorial">Clean results</button>
 </div>

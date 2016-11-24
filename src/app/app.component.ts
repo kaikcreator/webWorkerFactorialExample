@@ -72,6 +72,10 @@ export class AppComponent {
     this.items = [];
   }
 
+  public setNumberOfFactorials(e:Event){
+    this.numberOfFactorials = Number((e.target as HTMLInputElement).value);
+  }
+
 
 }
 

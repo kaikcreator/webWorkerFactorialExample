@@ -1,6 +1,5 @@
 //module.exports = require('./config/webpack.dev.js');
 
-var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var helpers = require('./config/helpers');
@@ -8,7 +7,8 @@ var helpers = require('./config/helpers');
 
 module.exports = {
   entry: {
-    'app': ['./src/polyfills.ts', './src/vendor.ts', './src/main.ts']
+    'app': ['./src/polyfills.ts', './src/vendor.ts', './src/main.ts'],
+    'webworker': ['./src/workerLoader.ts']
   },
 
   resolve: {
@@ -52,7 +52,8 @@ module.exports = {
 
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'src/index.html'
+      template: 'src/index.html',
+      excludeChunks: ['webworker']
     }),
 
     new ExtractTextPlugin('[name].css')

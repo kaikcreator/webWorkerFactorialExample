@@ -5,6 +5,5 @@ import { environment } from './environments/environment';
 if (environment.production) {
   enableProdMode();
 }
-
 import {bootstrapWorkerUi} from '@angular/platform-webworker';
-bootstrapWorkerUi('../dist/webworker.js');
+bootstrapWorkerUi('../webworker.js');

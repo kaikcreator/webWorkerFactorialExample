@@ -16,7 +16,7 @@ export class AppComponent {
   items = [];
   progress:number = 0;
   computingFactorial:boolean = false;
-  numberOfFactorials:number = 100;
+  numberOfFactorials:number = 600;
 
 
   constructor(){

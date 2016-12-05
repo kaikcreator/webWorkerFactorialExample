@@ -3,6 +3,7 @@ import {WorkerAppModule} from '@angular/platform-webworker';
 
 
 import { AppComponent } from './app.component';
+import { FactorialService } from './factorial.service';
 
 @NgModule({
   declarations: [
@@ -11,7 +12,7 @@ import { AppComponent } from './app.component';
   imports: [
     WorkerAppModule
   ],
-  providers: [],
+  providers: [FactorialService],
   bootstrap: [AppComponent]
 })
  export class AppModule { }

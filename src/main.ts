@@ -1,9 +1,11 @@
 import { enableProdMode } from '@angular/core';
-import { environment } from './environments/environment';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { AppModule } from './app/';
 
+import { environment } from './environments/environment';
 
 if (environment.production) {
   enableProdMode();
 }
-import {bootstrapWorkerUi} from '@angular/platform-webworker';
-bootstrapWorkerUi('../webworker.js');
+
+platformBrowserDynamic().bootstrapModule(AppModule);

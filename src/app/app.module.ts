@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import {WorkerAppModule} from '@angular/platform-webworker';
+import {BrowserModule} from '@angular/platform-browser';
 
 
 import { AppComponent } from './app.component';
@@ -10,7 +10,7 @@ import { FactorialService } from './factorial.service';
     AppComponent
   ],
   imports: [
-    WorkerAppModule
+    BrowserModule
   ],
   providers: [FactorialService],
   bootstrap: [AppComponent]

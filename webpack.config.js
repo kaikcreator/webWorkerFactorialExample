@@ -1,6 +1,5 @@
 //module.exports = require('./config/webpack.dev.js');
 
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var helpers = require('./config/helpers');
 
@@ -8,7 +7,6 @@ var helpers = require('./config/helpers');
 module.exports = {
   entry: {
     'app': ['./src/polyfills.ts', './src/vendor.ts', './src/main.ts'],
-    'webworker': ['./src/workerLoader.ts']
   },
 
   resolve: {
@@ -21,7 +19,7 @@ module.exports = {
     filename: '[name].js'
   },
 
-  devtool: 'cheap-module-eval-source-map',
+  devtool: 'eval-source-map',
 
   module: {
     loaders: [
@@ -47,8 +45,7 @@ module.exports = {
 
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'src/index.html',
-      excludeChunks: ['webworker']
+      template: 'src/index.html'
     })
   ]
 };

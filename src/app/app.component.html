@@ -1,15 +1,15 @@
-<h1>
-	{{title}}
-</h1>
+<div class="header">
+	<h1>
+		{{title}}
+	</h1>
 
-<div>
-	<label for="nFactorial">Compute factorials of first N numbers</label>
-	<input (input)="setNumberOfFactorials($event)" placeholder="Set a number">
+	<label for="nFactorial">Compute the next {{numberOfFactorials}} factorials, starting on:</label>
+	<input (input)="setStartNumber($event)" [value]="firstFactorial" placeholder="Set the start number">
 	<button (click)="computeFactorials()">Compute factorials</button>
 	<button (click)="cleanResults()" [disabled]="computingFactorials == true">Clean results</button>
+	<div [hidden]="computingFactorials == false">Completing: {{progress}} %</div>
 </div>
 
-<div [hidden]="computingFactorials == false">Completing: {{progress}} %</div>
-<div *ngFor="let item of items; let i = index;">
-	{{i+1}} - {{item}}
+<div class="items" *ngFor="let item of items">
+	{{item}}
 </div>

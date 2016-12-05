@@ -2,10 +2,35 @@ div label{
     display: block;
 }
 
-div:first-of-type{
-    margin-bottom: 20px;
+.header{
+    padding: 5px;
+    padding-bottom: 20px;
+    top: -8px;
+    font-size: 20px;
+    background: white;
+    position: fixed;
+    width:100%;
 }
 
 button:disabled{
     color: #aaa;
+}
+
+button{
+    padding: 10px;
+    border: none;
+    background-color: #333;
+    color: #ccc;
+    margin: 5px;
+}
+
+input{
+    padding: 8px;
+    margin: 5px;
+}
+
+.items{
+    font-size: 20px;
+    color: #333;
+    padding: 20px;
 }

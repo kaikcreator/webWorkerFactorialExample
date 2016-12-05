@@ -17,7 +17,8 @@ export class AppComponent {
   items = [];
   progress: number = 0;
   computingFactorials: boolean = false;
-  numberOfFactorials: number = 600;
+  firstFactorial: number = 700;
+  numberOfFactorials: number = 20;
 
 
   constructor(private factorialService: FactorialService) { }
@@ -30,7 +31,7 @@ export class AppComponent {
     this.computingFactorials = true;
 
     // perform tasks
-    for (let i = 1; i <= this.numberOfFactorials; i++) {
+    for (let i = this.firstFactorial; i < this.firstFactorial + this.numberOfFactorials; i++) {
       setTimeout(this.getFactorialForN(i), 0);
     }
 
@@ -41,11 +42,11 @@ export class AppComponent {
   private getFactorialForN(i: number) {
     return () => {
       let value = this.factorialService.syncFactorial(i);
-      this.items = [...this.items, value];
+      this.items = [...this.items, `${i} - ${value}`];
       this.progress += 100.0 / this.numberOfFactorials;
 
       // end
-      if (i === this.numberOfFactorials ) {
+      if (i === this.firstFactorial + this.numberOfFactorials -1 ) {
         this.computingFactorials = false;
       }
     };
@@ -55,8 +56,8 @@ export class AppComponent {
     this.items = [];
   }
 
-  public setNumberOfFactorials(e: Event) {
-    this.numberOfFactorials = Number((e.target as HTMLInputElement).value);
+  public setStartNumber(e: Event) {
+    this.firstFactorial = Number((e.target as HTMLInputElement).value);
   }
 
 

@@ -10,6 +10,7 @@ div label{
 
 button:disabled{
     color: #aaa;
+    background-color: #777;
 }
 
 button{

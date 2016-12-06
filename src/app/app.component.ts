@@ -18,7 +18,7 @@ export class AppComponent {
   progress: number = 0;
   computingFactorials: boolean = false;
   firstFactorial: number = 700;
-  numberOfFactorials: number = 20;
+  numberOfFactorials: number = 50;
 
 
   constructor(private factorialService: FactorialService) { }
@@ -44,6 +44,7 @@ export class AppComponent {
       let value = this.factorialService.syncFactorial(i);
       this.items = [...this.items, `${i} - ${value}`];
       this.progress += 100.0 / this.numberOfFactorials;
+      console.log("progress: ", this.progress);
 
       // end
       if (i === this.firstFactorial + this.numberOfFactorials -1 ) {

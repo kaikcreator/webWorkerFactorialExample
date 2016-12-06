@@ -21,7 +21,7 @@ module.exports = {
     filename: '[name].js'
   },
 
-  devtool: 'cheap-module-eval-source-map',
+  devtool: 'eval-source-map',
 
   module: {
     loaders: [
@@ -39,6 +39,11 @@ module.exports = {
       },
       {
         test: /\.css$/,
+        exclude: helpers.root('src', 'app'),
+        loader: ExtractTextPlugin.extract('style', 'css?sourceMap')
+      },
+      {
+        test: /\.css$/,
         include: helpers.root('src', 'app'),
         loader: 'raw'
       }
@@ -49,6 +54,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: 'src/index.html',
       excludeChunks: ['webworker']
-    })
+    }),
+    new ExtractTextPlugin('[name].css')
   ]
 };

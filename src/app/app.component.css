@@ -5,15 +5,12 @@ div label{
 .header{
     padding: 5px;
     padding-bottom: 20px;
-    top: -8px;
     font-size: 20px;
-    background: white;
-    position: block;
-    width:100%;
 }
 
 button:disabled{
     color: #aaa;
+    background-color: #777;
 }
 
 button{
@@ -43,6 +40,7 @@ input{
 .progress-bar {
     height: 20px;
     width: calc(100% - 16px);
+    margin: 8px;
     border: 1px solid;
     background-color: white;
     position: fixed;

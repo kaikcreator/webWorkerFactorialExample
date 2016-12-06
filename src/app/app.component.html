@@ -7,7 +7,10 @@
 	<input (input)="setStartNumber($event)" [value]="firstFactorial" placeholder="Set the start number">
 	<button (click)="computeFactorials()">Compute factorials</button>
 	<button (click)="cleanResults()" [disabled]="computingFactorials == true">Clean results</button>
-	<div [hidden]="computingFactorials == false">Completing: {{progress}} %</div>
+	<div [hidden]="computingFactorials == false">
+		<md-progress-bar mode="determinate" [value]="progress"></md-progress-bar>
+	</div>
+	
 </div>
 
 <div class="items" *ngFor="let item of items">

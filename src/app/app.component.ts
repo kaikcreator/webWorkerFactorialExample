@@ -44,9 +44,10 @@ export class AppComponent {
       let value = this.factorialService.syncFactorial(i);
       this.items = [...this.items, `${i} - ${value}`];
       this.progress += 100.0 / this.numberOfFactorials;
+      console.log('progress: ', this.progress);
 
       // end
-      if (i === this.firstFactorial + this.numberOfFactorials -1 ) {
+      if (i === this.firstFactorial + this.numberOfFactorials - 1 ) {
         this.computingFactorials = false;
       }
     };
@@ -54,6 +55,7 @@ export class AppComponent {
 
   public cleanResults() {
     this.items = [];
+    this.progress = 0;
   }
 
   public setStartNumber(e: Event) {

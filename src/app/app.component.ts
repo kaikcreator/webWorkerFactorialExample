@@ -48,6 +48,7 @@ export class AppComponent {
 
       // end
       if (i === this.firstFactorial + this.numberOfFactorials - 1 ) {
+        console.log("setting computing factorials, that is ", this.computingFactorials, " to false");
         this.computingFactorials = false;
       }
     };

@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
-import { MaterialModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { FactorialService } from './factorial.service';
@@ -10,8 +9,7 @@ import { FactorialService } from './factorial.service';
     AppComponent
   ],
   imports: [
-    BrowserModule,
-    MaterialModule.forRoot()
+    BrowserModule
   ],
   providers: [FactorialService],
   bootstrap: [AppComponent]

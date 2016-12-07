@@ -8,7 +8,7 @@
 	</h1>
 
 	<label for="nFactorial">Compute the next {{numberOfFactorials}} factorials, starting on:</label>
-	<input (input)="setStartNumber($event)" [value]="firstFactorial" placeholder="Set the start number">
+	<input [(ngModel)]="firstFactorial" placeholder="Set the start number">
 	<button (click)="computeFactorials()">Compute factorials</button>
 	<button (click)="cleanResults()" [disabled]="computingFactorials == true">Clean results</button>
 	

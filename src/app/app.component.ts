@@ -66,7 +66,7 @@ export class AppComponent {
         if(i == this.numberOfFactorials){
           this.computingFactorial = false;
         }
-      })
+      });
     }
 
     //log on method exit

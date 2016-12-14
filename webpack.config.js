@@ -55,7 +55,6 @@ module.exports = {
       template: 'src/index.html',
       excludeChunks: ['webworker']
     }),
-
     new ExtractTextPlugin('[name].css')
   ]
 };

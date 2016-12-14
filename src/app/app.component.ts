@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-var Big = require('big.js');
+import 'rxjs/add/operator/throttleTime';
 
+import { FactorialService } from './factorial.service';
 
 
 
@@ -14,71 +15,51 @@ var Big = require('big.js');
 export class AppComponent {
   title = 'factorial calculator';
   items = [];
-  progress:number = 0;
-  computingFactorial:boolean = false;
-  numberOfFactorials:number = 600;
+  progress: number = 0;
+  computingFactorials: boolean = false;
+  firstFactorial: number = 700;
+  numberOfFactorials: number = 50;
 
 
-  constructor(){
-    //start using scientific notation if exponent is greater than or equal to 5
-    Big.E_POS = 5; 
-  }
+  constructor(private factorialService: FactorialService) { }
 
 
-  private factorial(n:number):Promise<any>{
-    return new Promise((resolve, reject)=>
-    {
-      //if n is 0 or 1, resolve promise with value 1
-      if(n==0 || n == 1){
-        resolve(1);
-      }
-      //otherwise, compute factorial of n-1, 
-      //and then resolve promise with its result multiplied by n. 
-      else{
-        let bigNum = new Big(n);
-        this.factorial(n-1).then((result) =>{
-          resolve(bigNum.mul(result));
-        });        
-      }
-    })
-  }
-
-
-  public computeFactorial(){
-    //clear list, reset progress indicator and show progress bar
+  public computeFactorials() {
+    // clear list, reset progress indicator and show progress bar
     this.items = [];
     this.progress = 0;
-    this.computingFactorial = true;
+    this.computingFactorials = true;
 
-    let progressIncrement = 100.0 / this.numberOfFactorials;
-
-    
-    //compute factorials
-    for(let i=1; i<= this.numberOfFactorials; i++){
-      this.factorial(i).then(result =>{
-        //build new items array adding new computed value at the end
-        this.items =[...this.items, result];
-        //update progress
-        this.progress += progressIncrement;
-        console.log(this.progress);
-
-        //when we have computed all factorials, hide progress bar
-        if(i == this.numberOfFactorials){
-          this.computingFactorial = false;
-        }
-      });
+    // perform tasks
+    for (let i = this.firstFactorial; i < this.firstFactorial + this.numberOfFactorials; i++) {
+      setTimeout(this.getFactorialForN(i), 0);
     }
 
-    //log on method exit
-    console.log("exit compute factorial");
   }
 
-  public cleanResults(){
+
+  /* get factorial of a specific number and update interface*/
+  private getFactorialForN(i: number) {
+    return () => {
+      let value = this.factorialService.syncFactorial(i);
+      this.items = [...this.items, `${i} - ${value}`];
+      this.progress += 100.0 / this.numberOfFactorials;
+      console.log('progress: ', this.progress);
+
+      // end
+      if (i === this.firstFactorial + this.numberOfFactorials - 1 ) {
+        this.computingFactorials = false;
+      }
+    };
+  }
+
+  public cleanResults() {
     this.items = [];
+    this.progress = 0;
   }
 
-  public setNumberOfFactorials(e:Event){
-    this.numberOfFactorials = Number((e.target as HTMLInputElement).value);
+  public setStartNumber(e: Event) {
+    this.firstFactorial = Number((e.target as HTMLInputElement).value);
   }
 
 

@@ -57,10 +57,6 @@ export class AppComponent {
     this.progress = 0;
   }
 
-  public setStartNumber(e: Event) {
-    this.firstFactorial = Number((e.target as HTMLInputElement).value);
-  }
-
 
 }
 

@@ -23,7 +23,7 @@ export class FactorialService {
   }
 
 
-  public syncFactorial(n: number) {
+  public factorial(n: number) {
     return  this.factorialize(n).toPrecision(5);
   }
 

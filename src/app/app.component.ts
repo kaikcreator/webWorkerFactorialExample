@@ -41,7 +41,7 @@ export class AppComponent {
   /* get factorial of a specific number and update interface*/
   private getFactorialForN(i: number) {
     return () => {
-      let value = this.factorialService.syncFactorial(i);
+      let value = this.factorialService.factorial(i);
       this.items = [...this.items, `${i} - ${value}`];
       this.progress += 100.0 / this.numberOfFactorials;
       console.log('progress: ', this.progress);
@@ -56,10 +56,6 @@ export class AppComponent {
   public cleanResults() {
     this.items = [];
     this.progress = 0;
-  }
-
-  public setStartNumber(e: Event) {
-    this.firstFactorial = Number((e.target as HTMLInputElement).value);
   }
 
 

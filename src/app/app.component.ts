@@ -12,7 +12,6 @@ import { FactorialService } from './factorial.service';
 
 
 export class AppComponent {
-  title = 'factorial calculator';
   items = [];
   progress: number = 0;
   computingFactorials: boolean = false;

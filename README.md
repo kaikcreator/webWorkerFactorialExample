@@ -1,31 +1,25 @@
 # TestWebWorkers
 
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.17.
+This project is a sample demo to understand changes between running angular 2 in a single thread and doing so using webworkers
 
-## Development server
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Install
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class`.
+After downloading the code, run `npm install` to install dependencies.
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+## Run in single_thread
 
-## Running unit tests
+Move to GIT `single_thread` branch.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Run `npm start`. This will execute the webpack dev server in http://localhost:8080
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/). 
-Before running the tests make sure you are serving the app via `ng serve`.
+## Run using webworkers
 
-## Deploying to Github Pages
+Move to GIT `webworkers` branch.
 
-Run `ng github-pages:deploy` to deploy to Github Pages.
+Run `webpack --watch` in a terminal. This will execute webpack to create all required resources inside *dist* folder and watch for any changes.
 
-## Further help
-
-To get more help on the `angular-cli` use `ng --help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Inside other terminal, run a dev server like [simplehttpserver](https://www.npmjs.com/package/simplehttpserver), using port 8080 and base folder *dist*.
+G.E. `simplehttpserver dist/ -p 8080`. This will run the demo in http://localhost:8080

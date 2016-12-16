@@ -19,7 +19,12 @@ Run `npm start`. This will execute the webpack dev server in http://localhost:80
 
 Move to GIT `webworkers` branch.
 
-Run `webpack --watch` in a terminal. This will execute webpack to create all required resources inside *dist* folder and watch for any changes.
+The package.json file has been updated to use `webpack --watch` and a [simplehttpserver](https://www.npmjs.com/package/simplehttpserver) dev server, because webpack-dev-server causes an error when using Web Workers. 
 
-Inside other terminal, run a dev server like [simplehttpserver](https://www.npmjs.com/package/simplehttpserver), using port 8080 and base folder *dist*.
-G.E. `simplehttpserver dist/ -p 8080`. This will run the demo in http://localhost:8080
+So first you need to install *simplehttpserver* in case you don't already have it:
+
+```bash
+npm install -g simplehttpserver
+```
+
+Then run `npm start`. This will execute webpack in watch mode, and *simplehttpserver* in paralel using http://localhost:8080

@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import 'rxjs/add/operator/throttleTime';
 
 import { FactorialService } from './factorial.service';
 
@@ -13,7 +12,6 @@ import { FactorialService } from './factorial.service';
 
 
 export class AppComponent {
-  title = 'factorial calculator';
   items = [];
   progress: number = 0;
   computingFactorials: boolean = false;

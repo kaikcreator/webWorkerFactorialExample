@@ -3,15 +3,13 @@
 </div>
 
 <div class="header">
-	<h1>
-		{{title}}
-	</h1>
-
-	<label for="nFactorial">Compute the next {{numberOfFactorials}} factorials, starting on:</label>
+	<h1>Factorial calculator</h1>
+	<label>Compute the next {{numberOfFactorials}} factorials, starting on:</label>
 	<input [(ngModel)]="firstFactorial" type="number" placeholder="Set the start number">
 	<button (click)="computeFactorials()">Compute factorials</button>
-	<button (click)="cleanResults()" [disabled]="computingFactorials == true">Clean results</button>
+	<button (click)="cleanResults()" [disabled]="computingFactorials == true">Clean results</button>	
 </div>
+
 
 <div class="items" *ngFor="let item of items">
 	{{item}}

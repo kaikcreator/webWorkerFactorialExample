@@ -1,23 +1,30 @@
 # TestWebWorkers
 
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.17.
+This project is a sample demo to understand changes between running angular 2 in a single thread and doing so using webworkers
+
 
 ## Install
-Run `npm install` to install all the dependencies.
 
-## Development server in single thread (master branch)
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Development server using web workers (webworkers branch)
-Run `webpack --watch` in a terminal tab
-Run some local server, like [simplehttpserver](path/to/simplehttpserver) in another termina tab, based on dist folder and using port 8080: `ismplehttpserver dist/ -p 8080` 
-
-Navigate to `http://localhost:8080/`. The app will automatically reload if you change any of the source files.
-You should be using now web workers
+After downloading the code, run `npm install` to install dependencies.
 
 
-## Deploying to Github Pages
+## Run in single_thread
 
-Run `ng github-pages:deploy` to deploy to Github Pages.
+Move to GIT `single_thread` branch.
+
+Run `npm start`. This will execute the webpack dev server in http://localhost:8080
 
 
+## Run using webworkers
+
+Move to GIT `webworkers` branch.
+
+The package.json file has been updated to use `webpack --watch` and a [simplehttpserver](https://www.npmjs.com/package/simplehttpserver) dev server, because webpack-dev-server causes an error when using Web Workers. 
+
+So first you need to install *simplehttpserver* in case you don't already have it:
+
+```bash
+npm install -g simplehttpserver
+```
+
+Then run `npm start`. This will execute webpack in watch mode, and *simplehttpserver* in paralel using http://localhost:8080

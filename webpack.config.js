@@ -1,4 +1,3 @@
-//module.exports = require('./config/webpack.dev.js');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var helpers = require('./config/helpers');

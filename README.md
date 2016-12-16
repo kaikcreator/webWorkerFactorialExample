@@ -10,7 +10,7 @@ After downloading the code, run `npm install` to install dependencies.
 
 ## Run in single_thread
 
-Move to GIT `single_thread` branch.
+The master branch already includes the "single_thread" version so:
 
 Run `npm start`. This will execute the webpack dev server in http://localhost:8080
 

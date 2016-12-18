@@ -17,7 +17,7 @@ Run `npm start`. This will execute the webpack dev server in http://localhost:80
 
 ## Run using webworkers
 
-Move to GIT `webworkers` branch.
+Move to GIT `webWorkers` branch.
 
 The package.json file has been updated to use `webpack --watch` and a [simplehttpserver](https://www.npmjs.com/package/simplehttpserver) dev server, because webpack-dev-server causes an error when using Web Workers. 
 
@@ -27,4 +27,4 @@ So first you need to install *simplehttpserver* in case you don't already have i
 npm install -g simplehttpserver
 ```
 
-Then run `npm start`. This will execute webpack in watch mode, and *simplehttpserver* in paralel using http://localhost:8080
+Then run `npm start`. This will execute webpack in watch mode, and *simplehttpserver* in parallel using http://localhost:8080

@@ -2,6 +2,11 @@
 
 This project is a sample demo to understand changes between running angular 2 in a single thread and doing so using webworkers
 
+>NOTE: This project was generated with an old version of Angular CLI that didn't allow you to generate the webpack config. 
+**If you're a lucky guy working with Angular CLI v1.0 or higher, please, check [this other repo](https://github.com/kaikcreator/angular-cli-web-worker)**, that make things easier.
+
+Also [check this Stack Overflow detailed instructions](http://stackoverflow.com/questions/43276044/angular-cli-generated-app-with-web-workers/43276045#43276045) about how to do the migration from Angular single threaded project to use webworkers, step by step.
+
 
 ## Install
 
